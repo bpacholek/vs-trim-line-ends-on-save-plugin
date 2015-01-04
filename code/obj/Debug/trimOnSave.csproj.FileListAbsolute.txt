@@ -1,0 +1,15 @@
+D:\Projekty\IDCT\vs-trim-line-ends-on-save-plugin\VSPackage3\bin\Debug\trimOnSave.dll
+D:\Projekty\IDCT\vs-trim-line-ends-on-save-plugin\VSPackage3\bin\Debug\trimOnSave.pdb
+D:\Projekty\IDCT\vs-trim-line-ends-on-save-plugin\VSPackage3\bin\Debug\trimOnSave.pkgdef
+D:\Projekty\IDCT\vs-trim-line-ends-on-save-plugin\VSPackage3\bin\Debug\trimOnSave.vsix
+D:\Projekty\IDCT\vs-trim-line-ends-on-save-plugin\VSPackage3\bin\Debug\extension.vsixmanifest
+D:\Projekty\IDCT\vs-trim-line-ends-on-save-plugin\VSPackage3\obj\Debug\trimOnSave.csprojResolveAssemblyReference.cache
+D:\Projekty\IDCT\vs-trim-line-ends-on-save-plugin\VSPackage3\obj\Debug\trimOnSave.csproj.ResolveComReference.cache
+D:\Projekty\IDCT\vs-trim-line-ends-on-save-plugin\VSPackage3\obj\Debug\VSPackage.resources
+D:\Projekty\IDCT\vs-trim-line-ends-on-save-plugin\VSPackage3\obj\Debug\idct.trimOnSave.Resources.resources
+D:\Projekty\IDCT\vs-trim-line-ends-on-save-plugin\VSPackage3\obj\Debug\trimOnSave.csproj.GenerateResource.Cache
+D:\Projekty\IDCT\vs-trim-line-ends-on-save-plugin\VSPackage3\obj\Debug\trimOnSave.dll
+D:\Projekty\IDCT\vs-trim-line-ends-on-save-plugin\VSPackage3\obj\Debug\trimOnSave.pdb
+D:\Projekty\IDCT\vs-trim-line-ends-on-save-plugin\VSPackage3\obj\Debug\trimOnSave.pkgdef
+D:\Projekty\IDCT\vs-trim-line-ends-on-save-plugin\VSPackage3\obj\Debug\trimOnSave.latest.pkgdef
+D:\Projekty\IDCT\vs-trim-line-ends-on-save-plugin\VSPackage3\obj\Debug\extension.vsixmanifest
