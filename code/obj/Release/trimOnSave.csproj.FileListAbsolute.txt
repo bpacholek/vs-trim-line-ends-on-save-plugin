@@ -39,3 +39,12 @@ D:\Projekty\IDCT\trimPlugin\code\obj\Release\trimOnSave.pdb
 D:\Projekty\IDCT\trimPlugin\code\obj\Release\trimOnSave.pkgdef
 D:\Projekty\IDCT\trimPlugin\code\obj\Release\trimOnSave.latest.pkgdef
 D:\Projekty\IDCT\trimPlugin\code\obj\Release\extension.vsixmanifest
+D:\Projekty\IDCT\vs-trim-line-ends-on-save-plugin\code\obj\Release\trimOnSave.csproj.ResolveComReference.cache
+D:\Projekty\IDCT\vs-trim-line-ends-on-save-plugin\code\obj\Release\VSPackage.resources
+D:\Projekty\IDCT\vs-trim-line-ends-on-save-plugin\code\obj\Release\idct.trimOnSave.Resources.resources
+D:\Projekty\IDCT\vs-trim-line-ends-on-save-plugin\code\obj\Release\trimOnSave.csproj.GenerateResource.Cache
+D:\Projekty\IDCT\vs-trim-line-ends-on-save-plugin\code\obj\Release\trimOnSave.dll
+D:\Projekty\IDCT\vs-trim-line-ends-on-save-plugin\code\obj\Release\trimOnSave.pdb
+D:\Projekty\IDCT\vs-trim-line-ends-on-save-plugin\code\obj\Release\trimOnSave.pkgdef
+D:\Projekty\IDCT\vs-trim-line-ends-on-save-plugin\code\obj\Release\trimOnSave.latest.pkgdef
+D:\Projekty\IDCT\vs-trim-line-ends-on-save-plugin\code\obj\Release\extension.vsixmanifest

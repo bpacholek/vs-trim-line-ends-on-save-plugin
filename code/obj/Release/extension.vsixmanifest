@@ -1,8 +1,10 @@
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011">
   <Metadata>
-    <Identity Id="9f0c0746-31c8-498a-a822-b7a6cf6dccb4" Version="1.0" Language="en-US" Publisher="Company" />
-    <DisplayName>VSPackage3T</DisplayName>
-    <Description>Information about my package</Description>
+    <Identity Id="9f0c0746-31c8-498a-a822-b7a6cf6dccb4" Version="1.0" Language="en-US" Publisher="ideaconnect" />
+    <DisplayName>Trim line ends on save</DisplayName>
+    <Description xml:space="preserve">Automatically trims line endings on (before) document save.</Description>
+    <MoreInfo>https://github.com/ideaconnect/vs-trim-line-ends-on-save-plugin</MoreInfo>
+    <Tags>trim, line endings, line, editor</Tags>
   </Metadata>
   <Installation InstalledByMsi="false">
     <InstallationTarget Id="Microsoft.VisualStudio.Pro" Version="[12.0]" />
