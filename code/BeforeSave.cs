@@ -5,6 +5,7 @@ using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Interop;
 using System.IO;
 using System.Text;
+using System.Text.RegularExpressions;
 using System;
 namespace idct.trimOnSave
 {
@@ -16,7 +17,7 @@ namespace idct.trimOnSave
         public FormatDocumentOnBeforeSave(DTE dte, RunningDocumentTable runningDocumentTable)
         {
             _runningDocumentTable = runningDocumentTable;
-            
+
             _dte = dte;
         }
 
@@ -27,22 +28,14 @@ namespace idct.trimOnSave
             //if no document - do nothing
             if (document == null)
                 return VSConstants.S_OK;
-            
+
             //reading
             string text = GetDocumentText(document);
-            MemoryStream stream = new MemoryStream(Encoding.UTF8.GetBytes(text));           
-            stream.Seek(0, SeekOrigin.Begin);
 
-            //writing
-            string finalString = "";
-            StreamReader reader = new StreamReader(stream);
-            while(reader.Peek() != -1)
-            {
-                finalString += reader.ReadLine().TrimEnd() + Environment.NewLine;
-            }
+            text = Regex.Replace(text, "[ \t]+?(\r\n|\n|\r|$)", "$1", RegexOptions.Compiled);
 
             //setting
-            SetDocumentText(document, finalString);
+            SetDocumentText(document, text);
 
             return VSConstants.S_OK;
         }
