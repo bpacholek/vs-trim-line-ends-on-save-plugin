@@ -1,4 +1,0 @@
-C:\Users\Bartosz\AppData\Local\Microsoft\VisualStudio\12.0Exp\Extensions\Company\VSPackage3T\1.0\\trimOnSave.dll
-C:\Users\Bartosz\AppData\Local\Microsoft\VisualStudio\12.0Exp\Extensions\Company\VSPackage3T\1.0\\trimOnSave.pkgdef
-C:\Users\Bartosz\AppData\Local\Microsoft\VisualStudio\12.0Exp\Extensions\Company\VSPackage3T\1.0\\extension.vsixmanifest
-C:\Users\Bartosz\AppData\Local\Microsoft\VisualStudio\12.0Exp\Extensions\Company\VSPackage3T\1.0\\trimOnSave.pdb
