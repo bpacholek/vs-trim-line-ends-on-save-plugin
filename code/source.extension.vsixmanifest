@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
   <Metadata>
-    <Identity Id="9f0c0746-31c8-498a-a822-b7a6cf6dccb4" Version="1.0" Language="en-US" Publisher="ideaconnect" />
+    <Identity Id="9f0c0746-31c8-498a-a822-b7a6cf6dccb4" Version="1.1" Language="en-US" Publisher="ideaconnect" />
     <DisplayName>Trim line ends on save</DisplayName>
     <Description xml:space="preserve">Automatically trims line endings on (before) document save.</Description>
     <MoreInfo>https://github.com/ideaconnect/vs-trim-line-ends-on-save-plugin</MoreInfo>
