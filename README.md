@@ -1,7 +1,20 @@
 vs-trim-line-ends-on-save-plugin
 ================================
 
-Visual Studio plugin to trim line ends on save.
+Visual Studio plugin to trim line ends on save. Retains cursor and scroll position.
+
+Allows also to enforce line ending format via settings page:
+![missing image](http://idct.pl/img/trimtosave.png)
+
+Options:
+
+* `Windows` - \r\n
+* `Unix` - \r\n
+* `VisualStudio` - uses the Environment.NewLine
+* `Current` - keeps line endings encountered in the file
+
+By default uses the `VisualStudio` option.
+
 
 Usage
 =====
