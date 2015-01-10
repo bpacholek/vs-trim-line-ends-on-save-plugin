@@ -9,19 +9,32 @@ using System.Text.RegularExpressions;
 using System;
 using Microsoft.VisualStudio.TextManager.Interop;
 
+using System.Windows.Forms;
+using System.ComponentModel;
+
 namespace idct.trimOnSave
 {
     internal class FormatDocumentOnBeforeSave : IVsRunningDocTableEvents3
     {
         private DTE _dte;
         private IVsTextManager _txtMngr;
+        private SettingsPage _settingsPage;
         private RunningDocumentTable _runningDocumentTable;
 
-        public FormatDocumentOnBeforeSave(DTE dte, RunningDocumentTable runningDocumentTable, IVsTextManager txtMngr)
+        public FormatDocumentOnBeforeSave(DTE dte, RunningDocumentTable runningDocumentTable, IVsTextManager txtMngr, SettingsPage settingsPage)
         {
             _runningDocumentTable = runningDocumentTable;
             _txtMngr = txtMngr;
             _dte = dte;
+            _settingsPage = settingsPage;
+        }
+
+        struct scrollData
+        {
+            public int piMinUnit;
+            public int piMaxUnit;
+            public int piVisibleUnits;
+            public int piFirstVisible;
         }
 
         public int OnBeforeSave(uint docCookie)
@@ -39,16 +52,50 @@ namespace idct.trimOnSave
             int column = 0;
             textViewCurrent.GetCaretPos(out line, out column);
 
+            //preserving scroll position
+            scrollData horizontal = new scrollData();
+            scrollData vertical = new scrollData();
+            textViewCurrent.GetScrollInfo(0,out horizontal.piMinUnit, out horizontal.piMaxUnit, out horizontal.piVisibleUnits, out horizontal.piFirstVisible);
+            textViewCurrent.GetScrollInfo(1,out vertical.piMinUnit, out vertical.piMaxUnit, out vertical.piVisibleUnits, out vertical.piFirstVisible);
+
             //reading
             string text = GetDocumentText(document);
 
-            text = Regex.Replace(text, "[ \t]+?(\r\n|\n|\r|$)", Environment.NewLine, RegexOptions.Compiled);
+            //getting options
+            string endLineSymbol = "";
+            switch(_settingsPage.newLine)
+            {
+                case SettingsPage.NewLineSymbol.Current:
+                    endLineSymbol = "$1";
+                    break;
+                case SettingsPage.NewLineSymbol.Windows:
+                    endLineSymbol = "\r\n";
+                    break;
+                case SettingsPage.NewLineSymbol.Unix:
+                    endLineSymbol = "\n";
+                    break;
+                case SettingsPage.NewLineSymbol.VisualStudio:
+                    endLineSymbol = Environment.NewLine;
+                    break;
+                default:
+                    endLineSymbol = Environment.NewLine;
+                    break;
+            }
+
+            text = Regex.Replace(text, "[ \t]+?(\r\n|\n|\r|$)", endLineSymbol, RegexOptions.Compiled);
+
+            //replace EOLs based on the setting
+            text = Regex.Replace(text, "(\r\n|\n|\r)", endLineSymbol, RegexOptions.Compiled);
 
             //setting
             SetDocumentText(document, text);
 
             //restoring cursor position
             textViewCurrent.SetCaretPos(line, column);
+
+            //restoring scroll
+            textViewCurrent.SetScrollPosition(0,horizontal.piFirstVisible);
+            textViewCurrent.SetScrollPosition(1,vertical.piFirstVisible);
 
             return VSConstants.S_OK;
         }

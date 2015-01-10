@@ -10,6 +10,8 @@ using Microsoft.VisualStudio.OLE.Interop;
 using Microsoft.VisualStudio.Shell;
 using EnvDTE;
 using Microsoft.VisualStudio.TextManager.Interop;
+using System.Windows.Forms;
+using System.ComponentModel;
 
 namespace idct.trimOnSave
 {
@@ -30,6 +32,8 @@ namespace idct.trimOnSave
     // in the Help/About dialog of Visual Studio.
     [InstalledProductRegistration("#110", "#112", "1.0", IconResourceID = 400)]
     [Guid(GuidList.guidVSPackage3PkgString)]
+    [ProvideOptionPage(typeof(SettingsPage),
+    "Text Editor", "Trim on save", 0, 0, true)]
     [ProvideAutoLoad("{f1536ef8-92ec-443c-9ed7-fdadf150da82}")] //To set the UI context to autoload a VSPackage
     public sealed class trimOnSavePackage : Package
     {
@@ -59,7 +63,8 @@ namespace idct.trimOnSave
 
             var txtMgr = (IVsTextManager)GetService(typeof(SVsTextManager));
             var runningDocumentTable = new RunningDocumentTable(this);
-            var plugin = new FormatDocumentOnBeforeSave(dte, runningDocumentTable, txtMgr);
+            SettingsPage options = (SettingsPage)GetDialogPage(typeof(SettingsPage));
+            var plugin = new FormatDocumentOnBeforeSave(dte, runningDocumentTable, txtMgr, options);
             runningDocumentTable.Advise(plugin);
             base.Initialize();
 
@@ -67,5 +72,27 @@ namespace idct.trimOnSave
 
         #endregion
 
+    }
+
+    [ClassInterface(ClassInterfaceType.AutoDual)]
+    [Guid("1D9ECCF3-5D2F-4112-9B25-264596873DC9")]
+    public class SettingsPage : DialogPage
+    {
+        public enum NewLineSymbol {
+            Windows=0,
+            Unix=1,
+            VisualStudio=2,
+            Current=3
+        };
+        private NewLineSymbol newLineSymbol_Value = NewLineSymbol.VisualStudio;
+
+        private int[] myNumbers;
+
+        [Category("On Save")]
+        public NewLineSymbol newLine
+        {
+            get { return newLineSymbol_Value; }
+            set { newLineSymbol_Value = value; }
+        }
     }
 }
