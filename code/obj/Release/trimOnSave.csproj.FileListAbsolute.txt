@@ -5,7 +5,6 @@ D:\Projekty\IDCT\vs-trim-line-ends-on-save-plugin\binary\Release\trimOnSave.dll.
 D:\Projekty\IDCT\vs-trim-line-ends-on-save-plugin\binary\Release\trimOnSave.pkgdef
 D:\Projekty\IDCT\vs-trim-line-ends-on-save-plugin\binary\Release\trimOnSave.vsix
 D:\Projekty\IDCT\vs-trim-line-ends-on-save-plugin\binary\Release\extension.vsixmanifest
-D:\Projekty\IDCT\vs-trim-line-ends-on-save-plugin\code\obj\Release\trimOnSave.csprojResolveAssemblyReference.cache
 D:\Projekty\IDCT\vs-trim-line-ends-on-save-plugin\code\obj\Release\trimOnSave.csproj.ResolveComReference.cache
 D:\Projekty\IDCT\vs-trim-line-ends-on-save-plugin\code\obj\Release\VSPackage.resources
 D:\Projekty\IDCT\vs-trim-line-ends-on-save-plugin\code\obj\Release\idct.trimOnSave.Resources.resources
@@ -15,3 +14,4 @@ D:\Projekty\IDCT\vs-trim-line-ends-on-save-plugin\code\obj\Release\trimOnSave.pd
 D:\Projekty\IDCT\vs-trim-line-ends-on-save-plugin\code\obj\Release\trimOnSave.pkgdef
 D:\Projekty\IDCT\vs-trim-line-ends-on-save-plugin\code\obj\Release\trimOnSave.latest.pkgdef
 D:\Projekty\IDCT\vs-trim-line-ends-on-save-plugin\code\obj\Release\extension.vsixmanifest
+D:\Projekty\IDCT\vs-trim-line-ends-on-save-plugin\code\obj\Release\trimOnSave.csprojResolveAssemblyReference.cache

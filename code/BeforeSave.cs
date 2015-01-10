@@ -7,17 +7,20 @@ using System.IO;
 using System.Text;
 using System.Text.RegularExpressions;
 using System;
+using Microsoft.VisualStudio.TextManager.Interop;
+
 namespace idct.trimOnSave
 {
     internal class FormatDocumentOnBeforeSave : IVsRunningDocTableEvents3
     {
-        private readonly DTE _dte;
-        private readonly RunningDocumentTable _runningDocumentTable;
+        private DTE _dte;
+        private IVsTextManager _txtMngr;
+        private RunningDocumentTable _runningDocumentTable;
 
-        public FormatDocumentOnBeforeSave(DTE dte, RunningDocumentTable runningDocumentTable)
+        public FormatDocumentOnBeforeSave(DTE dte, RunningDocumentTable runningDocumentTable, IVsTextManager txtMngr)
         {
             _runningDocumentTable = runningDocumentTable;
-
+            _txtMngr = txtMngr;
             _dte = dte;
         }
 
@@ -29,13 +32,23 @@ namespace idct.trimOnSave
             if (document == null)
                 return VSConstants.S_OK;
 
+            //preserving cursor position
+            IVsTextView textViewCurrent;
+            _txtMngr.GetActiveView(1, null, out textViewCurrent);
+            int line = 0;
+            int column = 0;
+            textViewCurrent.GetCaretPos(out line, out column);
+
             //reading
             string text = GetDocumentText(document);
 
-            text = Regex.Replace(text, "[ \t]+?(\r\n|\n|\r|$)", "$1", RegexOptions.Compiled);
+            text = Regex.Replace(text, "[ \t]+?(\r\n|\n|\r|$)", Environment.NewLine, RegexOptions.Compiled);
 
             //setting
             SetDocumentText(document, text);
+
+            //restoring cursor position
+            textViewCurrent.SetCaretPos(line, column);
 
             return VSConstants.S_OK;
         }
