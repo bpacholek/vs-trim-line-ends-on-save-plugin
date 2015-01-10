@@ -14,4 +14,3 @@ D:\Projekty\IDCT\vs-trim-line-ends-on-save-plugin\code\obj\Release\trimOnSave.pd
 D:\Projekty\IDCT\vs-trim-line-ends-on-save-plugin\code\obj\Release\trimOnSave.pkgdef
 D:\Projekty\IDCT\vs-trim-line-ends-on-save-plugin\code\obj\Release\trimOnSave.latest.pkgdef
 D:\Projekty\IDCT\vs-trim-line-ends-on-save-plugin\code\obj\Release\extension.vsixmanifest
-D:\Projekty\IDCT\vs-trim-line-ends-on-save-plugin\code\obj\Release\trimOnSave.csprojResolveAssemblyReference.cache
