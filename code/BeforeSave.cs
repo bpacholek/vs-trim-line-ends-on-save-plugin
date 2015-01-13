@@ -82,13 +82,47 @@ namespace idct.trimOnSave
                     break;
             }
 
-            text = Regex.Replace(text, "[ \t]+?(\r\n|\n|\r|$)", endLineSymbol, RegexOptions.Compiled);
+            text = Regex.Replace(text, "[ \t]+?(\r\n|\n|\r)", endLineSymbol, RegexOptions.Compiled);
+
+            //fixed to avoid adding a new line
+            text = Regex.Replace(text, "[ \t]+?($)", "$1", RegexOptions.Compiled|RegexOptions.Multiline);
 
             //replace EOLs based on the setting
             text = Regex.Replace(text, "(\r\n|\n|\r)", endLineSymbol, RegexOptions.Compiled);
 
             //setting
             SetDocumentText(document, text);
+
+            //we need to change the column position as it is possible that there were spaces before the trim operation
+            StringReader reader = new StringReader(text);
+            int currentLine = 0;
+            bool breaked = false;
+            while(reader.Peek() != -1)
+            {
+                string currentLineText = reader.ReadLine();
+                if (currentLine < line)
+                {
+                    ++currentLine;
+                }
+                else
+                {
+                    if (column > currentLineText.Length)
+                    {
+                        column = currentLineText.Length;
+                    }
+                    breaked = true;
+                    break;
+                }
+            }
+
+            //special case: empty last line
+            if(breaked == false)
+            {
+                column = 0;
+            }
+
+            reader.Close();
+            reader = null;
 
             //restoring cursor position
             textViewCurrent.SetCaretPos(line, column);
