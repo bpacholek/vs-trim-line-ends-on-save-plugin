@@ -2,3 +2,11 @@ C:\Users\Bartosz\AppData\Local\Microsoft\VisualStudio\12.0Exp\Extensions\IDCT\Tr
 C:\Users\Bartosz\AppData\Local\Microsoft\VisualStudio\12.0Exp\Extensions\IDCT\Trim line ends on save\1.3.1\\trimOnSave.pkgdef
 C:\Users\Bartosz\AppData\Local\Microsoft\VisualStudio\12.0Exp\Extensions\IDCT\Trim line ends on save\1.3.1\\extension.vsixmanifest
 C:\Users\Bartosz\AppData\Local\Microsoft\VisualStudio\12.0Exp\Extensions\IDCT\Trim line ends on save\1.3.1\\trimOnSave.pdb
+C:\Users\Bartosz\AppData\Local\Microsoft\VisualStudio\12.0Exp\Extensions\IDCT\Trim line ends on save\1.3.2\\trimOnSave.dll
+C:\Users\Bartosz\AppData\Local\Microsoft\VisualStudio\12.0Exp\Extensions\IDCT\Trim line ends on save\1.3.2\\trimOnSave.pkgdef
+C:\Users\Bartosz\AppData\Local\Microsoft\VisualStudio\12.0Exp\Extensions\IDCT\Trim line ends on save\1.3.2\\extension.vsixmanifest
+C:\Users\Bartosz\AppData\Local\Microsoft\VisualStudio\12.0Exp\Extensions\IDCT\Trim line ends on save\1.3.2\\trimOnSave.pdb
+C:\Users\Bartosz\AppData\Local\Microsoft\VisualStudio\12.0Exp\Extensions\IDCT.pl IdeaConnect\Trim line ends on save\1.3.2\\trimOnSave.dll
+C:\Users\Bartosz\AppData\Local\Microsoft\VisualStudio\12.0Exp\Extensions\IDCT.pl IdeaConnect\Trim line ends on save\1.3.2\\trimOnSave.pkgdef
+C:\Users\Bartosz\AppData\Local\Microsoft\VisualStudio\12.0Exp\Extensions\IDCT.pl IdeaConnect\Trim line ends on save\1.3.2\\extension.vsixmanifest
+C:\Users\Bartosz\AppData\Local\Microsoft\VisualStudio\12.0Exp\Extensions\IDCT.pl IdeaConnect\Trim line ends on save\1.3.2\\trimOnSave.pdb
