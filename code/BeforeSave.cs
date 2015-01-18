@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using System.Collections.Generic;
 using EnvDTE;
 using Microsoft.VisualStudio;
 using Microsoft.VisualStudio.Shell;
@@ -37,6 +38,18 @@ namespace idct.trimOnSave
             public int piFirstVisible;
         }
 
+        struct breakPointData
+        {
+            public string functionName;
+            public int fileLine;
+            public int fileColumn;
+            public string condition;
+            public dbgBreakpointConditionType conditionType;
+            public dbgHitCountType hitCountType;
+            public string language;
+            public int hitCount;
+        }
+
         public int OnBeforeSave(uint docCookie)
         {
             var document = FindDocument(docCookie);
@@ -51,6 +64,30 @@ namespace idct.trimOnSave
             int line = 0;
             int column = 0;
             textViewCurrent.GetCaretPos(out line, out column);
+
+            //preserving breakpoints
+            List<breakPointData> breakPointsPreserved = new List<breakPointData>();
+            foreach (Breakpoint breakPoint in _dte.Debugger.Breakpoints)
+            {
+                if(breakPoint.File == _dte.ActiveDocument.FullName)
+                {
+                    breakPointData newBreakPoint = new breakPointData();
+
+                    newBreakPoint.fileColumn = breakPoint.FileColumn;
+                    newBreakPoint.fileLine = breakPoint.FileLine;
+                    newBreakPoint.language = breakPoint.Language;
+                    newBreakPoint.condition = breakPoint.Condition;
+                    newBreakPoint.functionName = breakPoint.FunctionName;
+                    newBreakPoint.conditionType = breakPoint.ConditionType;
+
+                    newBreakPoint.hitCount = breakPoint.CurrentHits;
+                    newBreakPoint.hitCountType = breakPoint.HitCountType;
+
+                    breakPointsPreserved.Add(newBreakPoint);
+                }
+            }
+
+
 
             //preserving scroll position
             scrollData horizontal = new scrollData();
@@ -123,6 +160,12 @@ namespace idct.trimOnSave
 
             reader.Close();
             reader = null;
+
+            //restoring breakpoints
+            foreach (breakPointData breakPoint in breakPointsPreserved)
+            {
+                _dte.Debugger.Breakpoints.Add("", Path.GetFileName(_dte.ActiveDocument.FullName), breakPoint.fileLine, breakPoint.fileColumn, breakPoint.condition, breakPoint.conditionType, breakPoint.language,"",1,"",breakPoint.hitCount,breakPoint.hitCountType);
+            }
 
             //restoring cursor position
             textViewCurrent.SetCaretPos(line, column);

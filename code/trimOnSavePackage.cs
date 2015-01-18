@@ -86,8 +86,6 @@ namespace idct.trimOnSave
         };
         private NewLineSymbol newLineSymbol_Value = NewLineSymbol.VisualStudio;
 
-        private int[] myNumbers;
-
         [Category("On Save")]
         public NewLineSymbol newLine
         {
