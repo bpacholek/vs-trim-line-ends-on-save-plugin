@@ -33,7 +33,7 @@ namespace idct.trimOnSave
     [InstalledProductRegistration("#110", "#112", "1.0", IconResourceID = 400)]
     [Guid(GuidList.guidVSPackage3PkgString)]
     [ProvideOptionPage(typeof(SettingsPage),
-    "Text Editor", "Trim on save", 0, 0, true)]
+    "IDCT", "Trim on save", 0, 0, true)]
     [ProvideAutoLoad("{f1536ef8-92ec-443c-9ed7-fdadf150da82}")] //To set the UI context to autoload a VSPackage
     public sealed class trimOnSavePackage : Package
     {

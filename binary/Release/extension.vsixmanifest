@@ -1,6 +1,6 @@
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011">
   <Metadata>
-    <Identity Id="9f0c0746-31c8-498a-a822-b7a6cf6dccb4" Version="1.3.3" Language="en-US" Publisher="IDCT.pl IdeaConnect" />
+    <Identity Id="9f0c0746-31c8-498a-a822-b7a6cf6dccb4" Version="1.34" Language="en-US" Publisher="IDCT.pl IdeaConnect" />
     <DisplayName>Trim line ends on save</DisplayName>
     <Description xml:space="preserve">Automatically trims line endings on (before) document save.</Description>
     <MoreInfo>https://github.com/ideaconnect/vs-trim-line-ends-on-save-plugin</MoreInfo>
