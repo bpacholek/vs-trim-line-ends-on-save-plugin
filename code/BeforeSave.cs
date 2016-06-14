@@ -119,6 +119,8 @@ namespace idct.trimOnSave
                     break;
             }
 
+            string originalText = text;
+
             text = Regex.Replace(text, "[ \t]+?(\r\n|\n|\r)", endLineSymbol, RegexOptions.Compiled);
 
             //fixed to avoid adding a new line
@@ -126,6 +128,9 @@ namespace idct.trimOnSave
 
             //replace EOLs based on the setting
             text = Regex.Replace(text, "(\r\n|\n|\r)", endLineSymbol, RegexOptions.Compiled);
+
+            if(originalText == text)
+                return VSConstants.S_OK;
 
             //setting
             SetDocumentText(document, text);
