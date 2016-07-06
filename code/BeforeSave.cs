@@ -52,6 +52,9 @@ namespace idct.trimOnSave
 
         public int OnBeforeSave(uint docCookie)
         {
+            if(!_settingsPage.Enabled)
+                return VSConstants.S_OK;
+
             var document = FindDocument(docCookie);
 
             //if no document - do nothing
