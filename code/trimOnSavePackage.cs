@@ -92,5 +92,11 @@ namespace idct.trimOnSave
             get { return newLineSymbol_Value; }
             set { newLineSymbol_Value = value; }
         }
+
+        [Category("General")]
+        public bool Enabled
+        {
+            get;set;
+        }
     }
 }
